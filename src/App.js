@@ -3,14 +3,20 @@ import logo from './logo.svg';
 import './App.css';
 
 import HelloWorld from './HelloWorld'
+import GoodbyeWorld from './GoodbyeWorld'
 
 class App extends React.Component {
   state = {
-    checked: false
+    checked: false,
+    count: 0
   }
 
   handleCheck = () => {
     this.setState({ checked: !this.state.checked})
+  }
+
+  increaseCount = () => {
+    this.setState( {count: this.state.count + 1} )
   }
 
   render() {
@@ -20,7 +26,7 @@ class App extends React.Component {
         <span>Click to Switch Components</span>
         <input type="checkbox" onChange={this.handleCheck}/>
         <br />
-        <HelloWorld />
+        { this.state.checked ? <GoodbyeWorld /> :<IncreaseCount increaseCount={this.increaseCount} count={this.state.count}/> }
       </div>
     )
   }
