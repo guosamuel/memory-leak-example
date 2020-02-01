@@ -25,7 +25,7 @@ class App extends React.Component {
         <span>Click to Switch Components</span>
         <input type="checkbox" onChange={this.handleCheck}/>
         <br />
-        { this.state.checked ? <StaticCount count={this.state.count}/> :<IncreaseCount increaseCount={this.increaseCount} count={this.state.count}/> }
+        { this.state.checked ? <StaticCount /> :<IncreaseCount increaseCount={this.increaseCount} count={this.state.count}/> }
       </div>
     )
   }

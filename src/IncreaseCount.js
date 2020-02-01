@@ -4,6 +4,18 @@ class IncreaseCount extends React.Component {
 
   componentDidMount() {
     document.addEventListener('click', this.props.increaseCount)
+    document.addEventListener('click', this.showLeakedMessage)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.props.increaseCount)
+    document.removeEventListener('click', this.showLeakedMessage)
+  }
+
+  showLeakedMessage = (e) => {
+    if (e.target.className === "button") {
+      console.log("I'm in the Increase Count component")
+    }
   }
 
   render() {
