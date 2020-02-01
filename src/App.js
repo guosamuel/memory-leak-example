@@ -2,8 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import HelloWorld from './HelloWorld'
-import GoodbyeWorld from './GoodbyeWorld'
+import IncreaseCount from './IncreaseCount'
+import StaticCount from './StaticCount'
 
 class App extends React.Component {
   state = {
@@ -20,13 +20,12 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <div className="App">
         <span>Click to Switch Components</span>
         <input type="checkbox" onChange={this.handleCheck}/>
         <br />
-        { this.state.checked ? <GoodbyeWorld /> :<IncreaseCount increaseCount={this.increaseCount} count={this.state.count}/> }
+        { this.state.checked ? <StaticCount count={this.state.count}/> :<IncreaseCount increaseCount={this.increaseCount} count={this.state.count}/> }
       </div>
     )
   }
